@@ -6,11 +6,14 @@ const dotenv = require('dotenv');
 const database = require('./config');
 const user = require('./routes/user');
 const appointment = require('./routes/appointment');
+const cookieParser = require('cookie-parser');
 dotenv.config();
 require('./cronTache.js');
 
-app.use(cors());
+
+app.use(cookieParser());
 app.use(bodyParser.json());
+app.use(cors({origin: "http://localhost:5173", credentials: true}));
 
 // Routes
 app.use('/user', user);

@@ -45,9 +45,10 @@
   const fetchAppointments = async () => {
     try {
       const response = await axios.get("http://localhost:3000/appointment/user", {
-            headers: {
-                Authorization: token
-            }});
+            // headers: {
+            //     Authorization: token
+            // }
+             withCredentials: true});
       appointments.value = response.data.map((appt) => ({
         description: appt.description,
         start: new Date(appt.startDate),

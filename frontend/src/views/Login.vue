@@ -13,10 +13,15 @@ const login = async () => {
         const response = await axios.post('http://localhost:3000/user/login', {
             email: email.value,
             password: password.value
-        });
+        },
+		{
+			withCredentials: true
+		}
+	);
         console.log(response.data);
         console.log("ok");
         localStorage.setItem('token', response.data.token);
+
     } catch (error) {
         console.error(error);
     }

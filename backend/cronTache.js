@@ -6,7 +6,7 @@ const sendEmail = require('./mail');
 require('dotenv').config();
 
 
- cron.schedule('*/10 * * * * *', async () => {
+ cron.schedule('0 0 1 * * *', async () => {
 
     try {
 

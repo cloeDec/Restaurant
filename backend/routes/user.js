@@ -32,6 +32,7 @@ router.post("/login", async (req, res) => {
         return res.status(400).send("Invalid password");
     }
     const token = jwt.sign({id: currentUser._id, username: currentUser.username}, process.env.SECRET);
+    res.cookie("token", token, { httpOnly: true , secure: true , maxAge: 3600000});
     res.json({token});
 
 
