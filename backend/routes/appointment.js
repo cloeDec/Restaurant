@@ -4,7 +4,7 @@ const router = express.Router();
 const authenticate = require("../middleware/auth");
 
 router.post("/create", authenticate, async (req, res) => {
-  const { startDate, endDate,  nbCouvert } = req.body;
+  const { startDate, endDate, nbCouvert } = req.body;
   const user = req.user.id;
 
   console.log(req.user);
@@ -23,26 +23,16 @@ router.post("/create", authenticate, async (req, res) => {
   }
 });
 
-router.get("/user", authenticate, async (req, res) => {
-  const user = req.user.id;
+router.get("/user", async (req, res) => {
+  const user = "67c855935e0ced04d3f80c74";
   try {
     const appointments = await Appointment.find({ user: user });
+
     console.log(`Found appointments: ${appointments}`);
     res.status(200).json(appointments);
   } catch (error) {
     res.status(400).json({ error });
     console.log(error);
-  }
-});
-
-router.get("/details/:id", authenticate, async (req, res) => {
-  const appointmentId = req.params.id;
-  try {
-    const appointment = await Appointment.findById(appointmentId);
-    if (!appointment) return res.status(404).send("Appointment not found");
-    res.status(200).json(appointment);
-  } catch (error) {
-    res.status(400).json({ error });
   }
 });
 

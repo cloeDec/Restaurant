@@ -82,7 +82,7 @@ onMounted(fetchAppointments);
   margin: 50px;
 }
 h2 {
-  color: #4caf50; /* Couleur du titre */
+  color: #ffcc00; /* Couleur du titre */
   text-align: center; /* Centrer le titre */
 }
 
