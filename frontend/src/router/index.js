@@ -1,30 +1,32 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Login from '../views/Login.vue'
-import Register from '@/views/Register.vue'
-import AddAppointment from '@/views/AddAppointment.vue'
-import ListAppointment from '@/views/ListAppointment.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import Home from "../views/Home.vue";
+import Reservation from "../views/Reservation.vue";
+import AddAppointment from "../views/AddAppointment.vue";
+import ListAppointment from "@/views/ListAppointment.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/login',
-      component: Login,
+      path: "/",
+      component: Home,
     },
     {
-      path: '/register',
-      component: Register,
+      path: "/reservation",
+      component: Reservation,
     },
+
     {
-      path: '/add-appointment',
+      path: "/add-appointment",
+      name: "AddAppointment",
       component: AddAppointment,
     },
     {
-      path: '/list-appointment',
+      path: "/list-appointment",
+      name: "ListAppointment",
       component: ListAppointment,
-    }
-
+    },
   ],
-})
+});
 
-export default router
+export default router;
