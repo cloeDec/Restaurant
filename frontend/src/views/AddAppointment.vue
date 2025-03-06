@@ -45,15 +45,17 @@ const add = async () => {
     );
 
     console.log(response.data);
+    alert("Réservation créée avec succès !");
   } catch (error) {
     console.error(error);
-    console.log(error.response.data);
+    alert(error.response.data.message || "Une erreur est survenue");
   }
 };
 </script>
 
 <template>
   <Navbar />
+  <div class="background-image">
   <div class="appointment-container">
     <div>
       <h1>Faire une Réservervation</h1>
@@ -77,7 +79,7 @@ const add = async () => {
         <button>Envoyer la demande</button>
       </form>
     </div>
-  </div>
+  </div></div>
 </template>
 
 <style scoped>
@@ -88,6 +90,18 @@ const add = async () => {
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg");
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
 }
 
 h1 {
@@ -113,7 +127,7 @@ input {
 button {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #333;
   color: white;
   border: none;
   border-radius: 4px;
@@ -121,6 +135,6 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #ffcc00;
 }
 </style>

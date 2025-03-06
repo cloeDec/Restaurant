@@ -23,11 +23,9 @@ router.post("/create", authenticate, async (req, res) => {
   }
 });
 
-router.get("/user", async (req, res) => {
-  const user = "67c855935e0ced04d3f80c74";
+router.get("/user", authenticate, async (req, res) => {
   try {
-    const appointments = await Appointment.find({ user: user });
-
+    const appointments = await Appointment.find({ id: req.id });
     console.log(`Found appointments: ${appointments}`);
     res.status(200).json(appointments);
   } catch (error) {

@@ -9,8 +9,8 @@ export default {
     <ul>
       <li><a href="/">Accueil</a></li>
       <li><a href="/reservation">Réservations</a></li>
-      <li><a href="#">Menu</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="/menu">Menu</a></li>
+      <li><a href="/contact">Contact</a></li>
     </ul>
   </nav>
 </template>
@@ -20,9 +20,9 @@ export default {
   background-color: #333;
   padding: 1rem;
   position: fixed;
-  top: 0; 
+  top: 0;
   width: 100%;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 .navbar ul {

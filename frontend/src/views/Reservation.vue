@@ -5,19 +5,26 @@ import RegisterComponent from "../components/RegisterComponent.vue";
 </script>
 
 <template>
-  <div style="margin-top: 60px">
+  <div class="main-container">
     <Navbar />
     <div class="background-image"></div>
     <div class="component">
-      <LoginComponent />
-      <RegisterComponent />
+      <div class="auth-container">
+        <LoginComponent />
+        <RegisterComponent />
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.main-container {
+  margin-top: 60px;
+  min-height: 100vh;
+}
+
 .background-image {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -35,6 +42,43 @@ import RegisterComponent from "../components/RegisterComponent.vue";
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: calc(100vh - 60px);
+  padding: 20px;
+}
+
+.auth-container {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Pour les écrans moyens */
+@media (max-width: 968px) {
+  .auth-container {
+    gap: 30px;
+    padding: 0 15px;
+  }
+}
+
+/* Pour les petits écrans */
+@media (max-width: 640px) {
+  .component {
+    padding: 10px;
+  }
+
+  .auth-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  :deep(LoginComponent),
+  :deep(RegisterComponent) {
+    width: 100%;
+    max-width: 400px;
+  }
 }
 </style>
